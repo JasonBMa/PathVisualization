@@ -1,4 +1,11 @@
 import pygame
+
+'''
+Display Class:
+Controls the display of the user, from creating graphics
+and some basic validations.
+'''
+
 #Colors for Graphics
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -19,30 +26,19 @@ class Display:
         self.offsetX = 30
         self.offsetY = 30
         self.screen = pygame.display.set_mode((width,height))
-        self.screen.fill(LIGHT_GRAY)
+        self.screen.fill(DARK_GRAY)
 
     def setup(self):
         pygame.init()
         pygame.display.set_caption('Path Visualizer')
         self.screen.fill(LIGHT_GRAY)
 
-    def getColor(value):
-        if(value == 0):
-            return WHITE
-        elif(value == 1):
-            return DARK_GRAY
-        elif(value == 2):
-            return BLUE
-        elif(value == 3):
-            return GREEN
-        elif(value == 4):
-            return RED
-
     def drawGrid(self,board):
         grid = board.grid
         for row in range(board.ROW):
             for col in range(board.COL):
-                pygame.draw.rect(self.screen, Display.getColor(grid[row][col]), (col * CELL_SIZE + self.offsetX, row * CELL_SIZE + self.offsetY, CELL_SIZE, CELL_SIZE))
+                cell = grid[row][col]
+                pygame.draw.rect(self.screen, cell.color, (col * CELL_SIZE + self.offsetX, row * CELL_SIZE + self.offsetY, CELL_SIZE, CELL_SIZE))
 
     def returnGrid():
         grid = None
