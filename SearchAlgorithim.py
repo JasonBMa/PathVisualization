@@ -1,4 +1,7 @@
 import queue
+import pygame
+
+clock = pygame.time.Clock()
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -8,8 +11,7 @@ GREEN = (0,250,154)
 RED = (220,20,60)
 BLUE = (135,206,235)
 
-def find(board):
-    print("Beginning Search for End")
+def find(board,display):
     grid = board.grid
     board.endFound = False
     q = queue.Queue()
@@ -19,6 +21,7 @@ def find(board):
 
     # Continue Searching until end is found, or there is no more path to explore.
     while(not q.empty()):
+        initialSize = q.qsize()
         cell = q.get()
         if(cell.color == RED):
             #Empty the queue the end is found, no longer need to search
@@ -40,3 +43,7 @@ def find(board):
             if(cell.col < board.COL-1):
                 newCell = grid[cell.row][cell.col+1]
                 q.put(newCell)
+            #Update screen when a cell, occurs ever .1 second
+            display.drawGrid(board)
+            pygame.display.update()
+            pygame.time.delay(100)
