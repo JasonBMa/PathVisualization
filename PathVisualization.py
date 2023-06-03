@@ -10,7 +10,6 @@ size = 300 #Recommended size 200
 CELL_SIZE = size*2//3 // cellDensity
 width = ratio[0] * size
 height = ratio[1] * size
-frameRate = 60
 
 # Clock used for refresh rate of the display
 clock = pygame.time.Clock()
@@ -24,7 +23,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-        elif (event.type == pygame.MOUSEBUTTONDOWN):
+        elif (pygame.mouse.get_pressed()[0]):
             # Get the mouse position
             pos = pygame.mouse.get_pos()
             #Check if mouse position is in the grid
@@ -34,9 +33,21 @@ while running:
             # Convert the mouse position to board coordinates
             col = (pos[0] - display.offsetX) // CELL_SIZE
             row = (pos[1] - display.offsetY) // CELL_SIZE
-            print(col,row)
             # Update the board
-            board.updateCell(row, col)
+            board.createWall(row, col)
+
+        elif (pygame.mouse.get_pressed()[2]):
+            # Get the mouse position
+            pos = pygame.mouse.get_pos()
+            #Check if mouse position is in the grid
+            if (display.validPosition(board.ROW,board.COL,pos) == False): #stops out of bound accesses
+                continue
+
+            # Convert the mouse position to board coordinates
+            col = (pos[0] - display.offsetX) // CELL_SIZE
+            row = (pos[1] - display.offsetY) // CELL_SIZE
+            # Update the board
+            board.deleteWall(row, col)
 
         elif (event.type == pygame.KEYDOWN):
             if (event.key == pygame.K_SPACE):
@@ -45,12 +56,12 @@ while running:
                     continue
 
                 #Search Algorithim
-                frameRate = 5
                 SearchAlgorithim.find(board,display)
 
 
     #Print out the updated grid at the end, should occur 60 times a second creating a 60 fps display.
     display.drawGrid(board)
     pygame.display.update()
+    clock.tick(60)
 pygame.quit()
 exit()

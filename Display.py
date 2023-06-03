@@ -48,12 +48,12 @@ class Display:
 
     def validPosition(self,boardRow,boardCol,pos):
         #Checks if x position is within grid
-        if(self.offsetX > pos[0] or pos[0] > (self.offsetX+(boardCol*self.CELL_SIZE))):
+        if(self.offsetX > pos[0] or pos[0] > (self.offsetX+(boardCol*self.CELL_SIZE))-1):
                 print("Invalid Position, nothing done")
                 return False
 
         #Checks if Y position is within grid
-        if(self.offsetY > pos[1] or pos[1] > (self.offsetY+(boardRow*self.CELL_SIZE))):
+        if(self.offsetY > pos[1] or pos[1] > (self.offsetY+(boardRow*self.CELL_SIZE))-1):
                 print("Invalid Position, nothing done")
                 return False
         return True

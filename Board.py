@@ -51,9 +51,12 @@ class Board:
     def loadBoard(self, updatedGrid):
         self.grid = updatedGrid
 
-    def updateCell(self,row,col):
+    def createWall(self,row,col):
         cell = self.grid[row][col]
         if (cell.color == WHITE): # gray to dark gray
             cell.color = LIGHT_GRAY
-        elif (cell.color == LIGHT_GRAY): # dark gray to gray
+
+    def deleteWall(self,row,col):
+        cell = self.grid[row][col]
+        if (cell.color == LIGHT_GRAY): # dark gray to gray
             cell.color = WHITE
