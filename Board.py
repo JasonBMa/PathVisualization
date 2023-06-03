@@ -24,13 +24,13 @@ class Cell:
         self.color = color
 
 class Board:
-    def __init__(self, col, row):
-        self.ROW = row
-        self.COL = col
+    def __init__(self, col, row, cellDensity):
+        self.ROW = row*cellDensity
+        self.COL = col*cellDensity
         self.grid = []
-        for i in range(row):
+        for i in range(self.ROW):
             self.grid.append([])
-            for j in range(col):
+            for j in range(self.COL):
                 cell = Cell(i,j,WHITE)
                 self.grid[i].append(cell)
 
