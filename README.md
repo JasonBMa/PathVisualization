@@ -4,6 +4,12 @@
 - pygame: For visuals
 - queue: Used for part of Search Algorithim
 
+## How to use
+Just run, PathVisualization.py.
+1. A Grid will appear that you can create walls.
+2. Press Space, to being search.
+3. Watch as it starts from the green square to find the end.
+
 ## What I Learned:
 - Creating graphics on the screen, and figuring out how to calculate the positions of where I wanted to create graphics.
 - Pygame, very convenient, especially compared to Java's graphic apis.
