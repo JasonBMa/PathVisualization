@@ -11,11 +11,12 @@ CELL_SIZE = size*2//3 // cellDensity
 width = ratio[0] * size
 height = ratio[1] * size
 frameRate = 60
+
 # Clock used for refresh rate of the display
 clock = pygame.time.Clock()
-
 board = Board(ratio[0],ratio[1],cellDensity)
 display = Display(height,width,CELL_SIZE)
+
 running = True
 while running:
     #Recieve user input
@@ -46,6 +47,7 @@ while running:
                 #Search Algorithim
                 frameRate = 5
                 SearchAlgorithim.find(board,display)
+
 
     #Print out the updated grid at the end, should occur 60 times a second creating a 60 fps display.
     display.drawGrid(board)
