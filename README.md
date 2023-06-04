@@ -7,9 +7,11 @@ Currently utilizes Breadth First Search In order to find *End Node*(cell) *from 
 
 ## How to use
 Just run, PathVisualization.py.
-1. A Grid will appear that you can create walls.
-2. Press Space, to being search.
-3. Watch as it starts from the green square to find the end.
+1. A Grid will appear that you can change
+    - Mouse1 to draw walls.
+    - Mouse2 to delete walls.
+2. Press '''Space''', to being search.
+3. Watch as it starts from the green square to find the end, creates a yellow line showing the optimal path.
 
 ## What I Learned:
 - Creating graphics on the screen, and figuring out how to calculate the positions of where I wanted to create graphics.
