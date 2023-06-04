@@ -26,3 +26,7 @@ Just run, PathVisualization.py.
 ## Considerations
 - Updating only the cells on the grid that changed for future operations
 - Honestly could have made it all in the class, but I like it in different classes as it's cleaner, and helps abstract the code while allowing PathVisualization.py to be clean
+
+## Author's Comment:
+- Created this after seeing some youtube videos, and was able to learn about the different kind of searches in class, decided to create this because it's cool and quite fascinating.
+- Like an algorithim, but visualized which is kind of satisfying, hoping to implement more advance algorithims that take account for if we know where the "end node" is and the "start node".
