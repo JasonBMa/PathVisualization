@@ -6,7 +6,8 @@ Currently utilizes Breadth First Search In order to find *End Node*(cell) *from 
 - queue: Used for part of Search Algorithim
 
 ## How to use
-Just run, PathVisualization.py.
+Make sure to have pygame installed in your system before running PathVisualization.py
+Just run, PathVisualization.py
 1. A Grid will appear that you can change
     - Mouse1 to draw walls.
     - Mouse2 to delete walls.
