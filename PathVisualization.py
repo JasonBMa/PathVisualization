@@ -5,7 +5,7 @@ from Display import Display
 import SearchAlgorithim
 
 ratio = [4,3] # Used to scale the UI
-cellDensity = 10 # Controls how many cells within the screen
+cellDensity = 5 # Controls how many cells within the screen
 size = 300 #Recommended size 200
 CELL_SIZE = size*2//3 // cellDensity
 width = ratio[0] * size
@@ -19,7 +19,6 @@ display = Display(height,width,CELL_SIZE)
 running = True
 while running:
     #Recieve user input
-    pygame.event.pump() #Just to stop freezing as OS will think program is not being used and will get yielded for other applications
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -63,6 +62,5 @@ while running:
     #Print out the updated grid at the end, should occur 60 times a second creating a 60 fps display.
     display.drawGrid(board)
     pygame.display.update()
-    clock.tick(60)
 pygame.quit()
 exit()

@@ -42,6 +42,7 @@ def find(board, display):
 
     # Continue Searching until end is found, or there is no more path to explore.
     while(not q.empty()):
+        pygame.event.pump() #Just to stop freezing as OS will think program is not being used and will get yielded for other applications
         cell = q.get()
         if(cell.color == RED):
             #Empty the queue the end is found, no longer need to search
